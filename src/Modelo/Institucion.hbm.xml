@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated jul 30, 2017 3:56:39 p.m. by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Institucion" table="INSTITUCION" schema="SYSTEM" optimistic-lock="version">
+        <id name="administrador" type="string">
+            <column name="ADMINISTRADOR" length="40" />
+            <generator class="assigned" />
+        </id>
+        <property name="contrasena" type="int">
+            <column name="CONTRASENA" precision="15" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>
