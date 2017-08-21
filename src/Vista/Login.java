@@ -219,14 +219,16 @@ public class Login extends javax.swing.JFrame {
         
         if (txtUsuario.getText().equals(Usuario)&& Pass.equals(Contraseña)){
             
+            JOptionPane.showMessageDialog(this, "El Usuario y la Contraseña digitada es correcta!!");
+            
             Interfaz_principal2 IP= new Interfaz_principal2();
             IP.setVisible(true);
-            dispose();
+            dispose();   
             
         }
         else{
             
-            JOptionPane.showMessageDialog(this, "El usuario o la Contraseña digitada es incorrecta!!");
+            JOptionPane.showMessageDialog(this, "El Usuario o la Contraseña digitada es incorrecta!!");
         }
     }//GEN-LAST:event_btnIngresarMouseClicked
 

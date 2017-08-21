@@ -181,7 +181,7 @@ public class Interfaz_Institucion extends javax.swing.JFrame {
 
     private void txtcontrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontrasActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtcontrasActionPerformed
 
     /**

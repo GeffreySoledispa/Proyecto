@@ -6,7 +6,7 @@
 package Vista;
 
 import Controlador.Operaciones;
-import Modelo.Estudiantes;
+import Modelo.Estudiantes; 
 
 /**
  *
