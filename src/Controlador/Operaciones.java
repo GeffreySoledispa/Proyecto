@@ -25,7 +25,7 @@ public class Operaciones {
     session.save(inst);
     tx.commit();
     session.close();
-    JOptionPane.showMessageDialog (null, "Dato de Administrador/a de la Institucion Registrado Correctamente!!");
+    JOptionPane.showMessageDialog (null, "Dato del Administrador/a de la Institución Registrado/a Correctamente!!");
         
     }
     
@@ -38,7 +38,7 @@ public class Operaciones {
     session.save(docent);
     tx.commit();
     session.close();
-    JOptionPane.showMessageDialog (null, "Dato de Docente de la Institucion Registrado Correctamente!!");
+    JOptionPane.showMessageDialog (null, "Dato del Docente de la Institución Registrado/a Correctamente!!");
         
     }
     
@@ -52,7 +52,7 @@ public class Operaciones {
     session.save(estud);
     tx.commit();
     session.close();
-    JOptionPane.showMessageDialog (null, "Dato de Estudiante de la Institucion Registrado Correctamente!!");
+    JOptionPane.showMessageDialog (null, "Dato del Estudiante de la Institución Registrado/a Correctamente!!");
         
     }
     
