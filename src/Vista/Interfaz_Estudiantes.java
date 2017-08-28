@@ -7,6 +7,7 @@ package Vista;
 
 import Controlador.Operaciones;
 import Modelo.Estudiantes; 
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -77,9 +78,20 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
                 txtgradEActionPerformed(evt);
             }
         });
+        txtgradE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtgradEKeyTyped(evt);
+            }
+        });
 
         jLabel3.setText("Cedula_Estudiante:");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtcedE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcedEKeyTyped(evt);
+            }
+        });
 
         btnRegEst.setText("Registrar_Estudiante");
         btnRegEst.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -94,6 +106,12 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
 
         jLabel5.setText("Nombre_Estudiante:");
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtnomE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnomEKeyTyped(evt);
+            }
+        });
 
         btnregresar.setText("Regresar");
         btnregresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -120,9 +138,26 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
         jLabel7.setText("Apellido_Estudiante:");
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        txtapellE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtapellEKeyTyped(evt);
+            }
+        });
+
         txtcodE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcodEActionPerformed(evt);
+            }
+        });
+        txtcodE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcodEKeyTyped(evt);
+            }
+        });
+
+        txtparE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtparEKeyTyped(evt);
             }
         });
 
@@ -137,6 +172,11 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
         txtaniolect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtaniolectActionPerformed(evt);
+            }
+        });
+        txtaniolect.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtaniolectKeyTyped(evt);
             }
         });
 
@@ -179,15 +219,15 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
                         .addComponent(btnNuevoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnRegEst, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 223, Short.MAX_VALUE)
-                .addComponent(btnregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(234, 234, 234))
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(180, 180, 180)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(212, 212, 212))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,9 +253,9 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtapellE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtgradE, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(txtgradE, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -239,6 +279,7 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegEst)
                     .addComponent(btnNuevoEst))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnregresar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -265,7 +306,12 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
 
     private void btnRegEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegEstActionPerformed
         // TODO add your handling code here:
-
+        //
+        String FORMAT = "dd-MM-yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(FORMAT);
+        String strFecha = sdf.format( txtfechamatE.getDate() );        
+        //
+        
         Estudiantes  estud = new Estudiantes (txtcodE.getText(),
             Integer.parseInt(txtcedE.getText()),
             txtnomE.getText(),
@@ -273,9 +319,13 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
             Integer.parseInt(txtgradE.getText()),
             sexo.getSelectedItem().toString(),
             txtparE.getText(),
-            txtfechamatE.getDate(),
+            strFecha,
             Integer.parseInt(txtaniolect.getText()));
             oper.v_Estudiantes(estud);
+            
+            Interfaz_principal2 intf = new Interfaz_principal2(); 
+            intf.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_btnRegEstActionPerformed
 
     private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
@@ -292,6 +342,83 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
     private void txtaniolectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtaniolectActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtaniolectActionPerformed
+
+    private void txtcodEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodEKeyTyped
+        char c= evt.getKeyChar();
+        if(c<'0'||c>'9') evt.consume();
+    }//GEN-LAST:event_txtcodEKeyTyped
+
+    private void txtcedEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedEKeyTyped
+        char c= evt.getKeyChar();
+        if(c<'0'||c>'9') evt.consume();
+    }//GEN-LAST:event_txtcedEKeyTyped
+
+    private void txtnomEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomEKeyTyped
+        char c= evt.getKeyChar();
+        if(Character.isDigit(c))
+        {
+            getToolkit().beep();
+            evt.consume();
+            txtnomE.setCursor(null);
+        }
+        else if((int) evt.getKeyChar()>=32 && (int) evt.getKeyChar()<=47
+        ||(int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
+        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96
+        ||(int) evt.getKeyChar()>=123 && (int) evt.getKeyChar()<=255)
+        {
+            getToolkit().beep();
+            evt.consume();
+            txtnomE.setCursor(null);
+        }
+    }//GEN-LAST:event_txtnomEKeyTyped
+
+    private void txtapellEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellEKeyTyped
+        char c= evt.getKeyChar();
+        if(Character.isDigit(c))
+        {
+            getToolkit().beep();
+            evt.consume();
+            txtapellE.setCursor(null);
+        }
+        else if((int) evt.getKeyChar()>=32 && (int) evt.getKeyChar()<=47
+        ||(int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
+        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96
+        ||(int) evt.getKeyChar()>=123 && (int) evt.getKeyChar()<=255)
+        {
+            getToolkit().beep();
+            evt.consume();
+            txtapellE.setCursor(null);
+        }
+    }//GEN-LAST:event_txtapellEKeyTyped
+
+    private void txtgradEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtgradEKeyTyped
+        char c= evt.getKeyChar();
+        if(c<'0'||c>'9') evt.consume();
+    }//GEN-LAST:event_txtgradEKeyTyped
+
+    private void txtparEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtparEKeyTyped
+        char c= evt.getKeyChar();
+        if(Character.isDigit(c))
+        {
+            getToolkit().beep();
+            evt.consume();
+            txtparE.setCursor(null);
+        }
+        else if((int) evt.getKeyChar()>=32 && (int) evt.getKeyChar()<=47
+        ||(int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
+        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96
+        ||(int) evt.getKeyChar()>=123 && (int) evt.getKeyChar()<=255)
+        {
+            getToolkit().beep();
+            evt.consume();
+            txtparE.setCursor(null);
+        }
+    }//GEN-LAST:event_txtparEKeyTyped
+
+    private void txtaniolectKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtaniolectKeyTyped
+        char c= evt.getKeyChar();
+        if(c<'0'||c>'9') evt.consume();
+    }//GEN-LAST:event_txtaniolectKeyTyped
 
     /**
      * @param args the command line arguments

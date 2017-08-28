@@ -89,6 +89,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        Password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PasswordKeyTyped(evt);
+            }
+        });
+
         btnIngresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnIngresar.setText("Ingresar");
         btnIngresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
@@ -240,6 +246,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void PasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyTyped
+        char c= evt.getKeyChar();
+        if(c<'0'||c>'9') evt.consume();
+    }//GEN-LAST:event_PasswordKeyTyped
 
     /**
      * @param args the command line arguments

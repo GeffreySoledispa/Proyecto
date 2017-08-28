@@ -91,6 +91,11 @@ public class Interfaz_Institucion extends javax.swing.JFrame {
                 txtcontrasActionPerformed(evt);
             }
         });
+        txtcontras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcontrasKeyTyped(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(51, 51, 255));
@@ -166,6 +171,10 @@ public class Interfaz_Institucion extends javax.swing.JFrame {
         Institucion inst = new Institucion
         (txtadm.getText(), Integer.parseInt(txtcontras.getText()));
         oper.v_Institucion(inst);
+        
+        Interfaz_Docentes intD = new Interfaz_Docentes(); 
+        intD.setVisible(true);
+        this.dispose(); 
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void txtadmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtadmActionPerformed
@@ -183,6 +192,11 @@ public class Interfaz_Institucion extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_txtcontrasActionPerformed
+
+    private void txtcontrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcontrasKeyTyped
+        char c= evt.getKeyChar();
+        if(c<'0'||c>'9') evt.consume();
+    }//GEN-LAST:event_txtcontrasKeyTyped
 
     /**
      * @param args the command line arguments
