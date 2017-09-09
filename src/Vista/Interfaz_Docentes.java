@@ -9,12 +9,14 @@ import Controlador.Operaciones;
 import Modelo.Docentes;
 import Modelo.Estudiantes;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author HP
  */
 public class Interfaz_Docentes extends javax.swing.JFrame {
+    DefaultTableModel modelo = new DefaultTableModel();
     
 
     Operaciones oper;
@@ -25,6 +27,17 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         oper = new Operaciones();
+        
+        modelo.addColumn("Código_D");
+        modelo.addColumn("Cedula_E");
+        modelo.addColumn("Administrador/a");
+        modelo.addColumn("Nombre_D");
+        modelo.addColumn("Apellido_D");
+        modelo.addColumn("Cedúla_D");
+        modelo.addColumn("Director/a_I");
+        modelo.addColumn("Sexo");
+        modelo.addColumn("Año_L"); 
+        jTable1.setModel(modelo);
     }
 
     /**
@@ -37,7 +50,6 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
     private void initComponents() {
 
         txtcedD = new javax.swing.JTextField();
-        txtadm = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtnomD = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -59,6 +71,10 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
         txtcodE = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtaniolect = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnEliminar = new javax.swing.JButton();
+        txtadm = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,12 +86,6 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
         txtcedD.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtcedDKeyTyped(evt);
-            }
-        });
-
-        txtadm.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtadmKeyTyped(evt);
             }
         });
 
@@ -187,6 +197,27 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        btnEliminar.setText("Eliminar_Docente");
+        btnEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,46 +225,55 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
+                        .addGap(66, 66, 66)
+                        .addComponent(btnNuevoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(112, 112, 112)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel1)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(112, 112, 112)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel10)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel8))
+                            .addGap(31, 31, 31)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtcedD, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtapellD, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtnomD, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtadm, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtaniolect, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtDirInst, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txtcodD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                            .addComponent(txtcodE, javax.swing.GroupLayout.Alignment.LEADING)))
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnRegDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(81, 81, 81)
+                                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(275, 275, 275)
                         .addComponent(btnregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel4)))
-                .addGap(0, 21, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel8)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(27, 27, 27)
-                                        .addComponent(btnNuevoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(11, 11, 11)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtapellD, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtnomD, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtcedD, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDirInst, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtadm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                        .addComponent(txtcodE, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtcodD, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(txtaniolect, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnRegDoc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
+                        .addGap(268, 268, 268)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -242,9 +282,9 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addGap(31, 31, 31)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel11)
-                .addGap(41, 41, 41)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtcodD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -280,13 +320,16 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtaniolect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevoDoc)
-                    .addComponent(btnRegDoc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(btnRegDoc)
+                    .addComponent(btnEliminar))
+                .addGap(18, 18, 18)
                 .addComponent(btnregresar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -322,10 +365,19 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
             sexo.getSelectedItem().toString(),
             Integer.parseInt(txtaniolect.getText()));
             oper.v_Docente(docent);
-            
-            Interfaz_Estudiantes intE = new Interfaz_Estudiantes(); 
-            intE.setVisible(true);
-            this.dispose();
+        //Tabla Docentes
+        String Dato[]=new String [9];
+        Dato[0] = txtcodD.getText();
+        Dato[1] = txtcodE.getText();
+        Dato[2] = txtadm.getText();
+        Dato[3] = txtnomD.getText();
+        Dato[4] = txtapellD.getText();
+        Dato[5] = txtcedD.getText();
+        Dato[6] = txtDirInst.getText();
+        Dato[7] = sexo.getSelectedItem().toString();
+        Dato[8] = txtaniolect.getText();
+        modelo.addRow(Dato);
+        
 
     }//GEN-LAST:event_btnRegDocActionPerformed
 
@@ -356,10 +408,6 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtcodEKeyTyped
 
-    private void txtadmKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtadmKeyTyped
-        
-    }//GEN-LAST:event_txtadmKeyTyped
-
     private void txtnomDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomDKeyTyped
         char c= evt.getKeyChar();
         if(Character.isDigit(c))
@@ -368,10 +416,10 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
             evt.consume();
             txtnomD.setCursor(null);
         }
-        else if((int) evt.getKeyChar()>=32 && (int) evt.getKeyChar()<=47
-        ||(int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
-        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96
-        ||(int) evt.getKeyChar()>=123 && (int) evt.getKeyChar()<=255)
+        else if(
+        (int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
+        
+        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96)
         {
             getToolkit().beep();
             evt.consume();
@@ -391,10 +439,10 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
             evt.consume();
             txtapellD.setCursor(null);
         }
-        else if((int) evt.getKeyChar()>=32 && (int) evt.getKeyChar()<=47
-        ||(int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
-        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96
-        ||(int) evt.getKeyChar()>=123 && (int) evt.getKeyChar()<=255)
+        else if(
+        (int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
+        
+        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96)
         {
             getToolkit().beep();
             evt.consume();
@@ -411,6 +459,16 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
         char c= evt.getKeyChar();
         if(c<'0'||c>'9') evt.consume();
     }//GEN-LAST:event_txtaniolectKeyTyped
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int FilaSelec = jTable1.getSelectedRow();
+        if(FilaSelec >=0){
+            modelo.removeRow(FilaSelec);
+        }
+        else{
+            JOptionPane.showMessageDialog(this,  "Fila No Seleccionada");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -449,6 +507,7 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnNuevoDoc;
     private javax.swing.JButton btnRegDoc;
     private javax.swing.JButton btnregresar;
@@ -463,6 +522,8 @@ public class Interfaz_Docentes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> sexo;
     private javax.swing.JTextField txtDirInst;
     private javax.swing.JTextField txtadm;

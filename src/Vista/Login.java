@@ -6,6 +6,9 @@
 package Vista;
 
 import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.UIManager.*;
 
 /**
  *
@@ -19,6 +22,12 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        try{
+            UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+        }catch (Exception ex){
+            
+        }
+        
     }
 
     /**

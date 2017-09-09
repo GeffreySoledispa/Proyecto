@@ -8,12 +8,15 @@ package Vista;
 import Controlador.Operaciones;
 import Modelo.Estudiantes; 
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author HP
  */
 public class Interfaz_Estudiantes extends javax.swing.JFrame {
+    DefaultTableModel modelo = new DefaultTableModel();
 
     Operaciones oper;
     /**
@@ -23,6 +26,18 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         oper = new Operaciones ();
+        
+        modelo.addColumn("Código_E");
+        modelo.addColumn("Cedula_E");
+        modelo.addColumn("Nombre_E");
+        modelo.addColumn("Apellido_E");
+        modelo.addColumn("Grado");
+        modelo.addColumn("Sexo");
+        modelo.addColumn("Paralelo");
+        modelo.addColumn("Fecha_M");
+        modelo.addColumn("Año_L");
+        jTable1.setModel(modelo);
+        
     }
 
     /**
@@ -57,6 +72,9 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
         txtfechamatE = new com.toedter.calendar.JDateChooser();
         jLabel12 = new javax.swing.JLabel();
         txtaniolect = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,6 +198,27 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        btnEliminar.setText("Eliminar_Estudiante");
+        btnEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,60 +226,61 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel8))
-                        .addGap(23, 23, 23))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(btnNuevoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtapellE, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtnomE, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtcedE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                .addComponent(txtcodE, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(txtgradE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtparE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtfechamatE, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtaniolect, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnRegEst, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(117, 117, 117)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(btnregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addGap(240, 240, 240)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel8))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtapellE, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnomE, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtcedE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                        .addComponent(txtcodE, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(txtgradE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtparE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfechamatE, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtaniolect, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(btnRegEst, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(btnNuevoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(274, 274, 274)
+                .addComponent(btnregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addGap(35, 35, 35)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel12)
-                .addGap(43, 43, 43)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtcodE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -264,7 +304,7 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtparE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -275,17 +315,20 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtfechamatE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtaniolect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegEst)
-                    .addComponent(btnNuevoEst))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(btnNuevoEst)
+                    .addComponent(btnEliminar))
+                .addGap(18, 18, 18)
                 .addComponent(btnregresar)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(238, Short.MAX_VALUE))
         );
 
         pack();
@@ -302,6 +345,8 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
         txtparE.setText("");
         txtfechamatE.setDate(null);
         txtaniolect.setText("");
+        txtcodE.requestFocus();
+        
     }//GEN-LAST:event_btnNuevoEstActionPerformed
 
     private void txtgradEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtgradEActionPerformed
@@ -327,9 +372,22 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
             Integer.parseInt(txtaniolect.getText()));
             oper.v_Estudiantes(estud);
             
-            Interfaz_principal2 intf = new Interfaz_principal2(); 
-            intf.setVisible(true);
-            this.dispose();
+        //Tabla Estudiantes
+        String Dato[]=new String [9];
+        Dato[0] = txtcodE.getText();
+        Dato[1] = txtcedE.getText();
+        Dato[2] = txtnomE.getText();
+        Dato[3] = txtapellE.getText();
+        Dato[4] = txtgradE.getText();
+        Dato[5] = sexo.getSelectedItem().toString();
+        Dato[6] = txtparE.getText();
+        Dato[7] = strFecha;
+        Dato[8] = txtaniolect.getText();
+        modelo.addRow(Dato);
+            
+            
+        
+        
     }//GEN-LAST:event_btnRegEstActionPerformed
 
     private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
@@ -365,10 +423,10 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
             evt.consume();
             txtnomE.setCursor(null);
         }
-        else if((int) evt.getKeyChar()>=32 && (int) evt.getKeyChar()<=47
-        ||(int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
-        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96
-        ||(int) evt.getKeyChar()>=123 && (int) evt.getKeyChar()<=255)
+        else if(
+        (int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
+        
+        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96)
         {
             getToolkit().beep();
             evt.consume();
@@ -384,10 +442,10 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
             evt.consume();
             txtapellE.setCursor(null);
         }
-        else if((int) evt.getKeyChar()>=32 && (int) evt.getKeyChar()<=47
-        ||(int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
-        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96
-        ||(int) evt.getKeyChar()>=123 && (int) evt.getKeyChar()<=255)
+        else if(
+        (int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
+        
+        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96)
         {
             getToolkit().beep();
             evt.consume();
@@ -402,27 +460,24 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
 
     private void txtparEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtparEKeyTyped
         char c= evt.getKeyChar();
-        if(Character.isDigit(c))
-        {
-            getToolkit().beep();
-            evt.consume();
-            txtparE.setCursor(null);
-        }
-        else if((int) evt.getKeyChar()>=32 && (int) evt.getKeyChar()<=47
-        ||(int) evt.getKeyChar()>=58 && (int) evt.getKeyChar()<=64
-        ||(int) evt.getKeyChar()>=91 && (int) evt.getKeyChar()<=96
-        ||(int) evt.getKeyChar()>=123 && (int) evt.getKeyChar()<=255)
-        {
-            getToolkit().beep();
-            evt.consume();
-            txtparE.setCursor(null);
-        }
+        if(c<'A'||c>'Z') evt.consume();
     }//GEN-LAST:event_txtparEKeyTyped
 
     private void txtaniolectKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtaniolectKeyTyped
         char c= evt.getKeyChar();
         if(c<'0'||c>'9') evt.consume();
     }//GEN-LAST:event_txtaniolectKeyTyped
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        
+        int FilaSelec = jTable1.getSelectedRow();
+        if(FilaSelec >=0){
+            modelo.removeRow(FilaSelec);
+        }
+        else{
+            JOptionPane.showMessageDialog(this,  "Fila No Seleccionada");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -460,6 +515,7 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnNuevoEst;
     private javax.swing.JButton btnRegEst;
     private javax.swing.JButton btnregresar;
@@ -474,6 +530,8 @@ public class Interfaz_Estudiantes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> sexo;
     private javax.swing.JTextField txtaniolect;
     private javax.swing.JTextField txtapellE;
